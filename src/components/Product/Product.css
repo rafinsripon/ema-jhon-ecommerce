@@ -1,0 +1,10 @@
+@media (max-width: 576px) { 
+    .navbar {
+        background-color: #1c2b35;
+        height: 124px;
+        padding-left: 110px;
+        padding-right: 110px;
+        flex-direction: column;
+    }
+}
+/* @media (min-width: 640px) { ... } */

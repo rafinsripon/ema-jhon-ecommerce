@@ -1,11 +1,12 @@
 import React from 'react';
+import './Product.css';
 
 const Product = ({product, addToCart}) => {
     // console.log(props)
     // const {product, addToCart} = props;
     const {name, img, seller, price, ratings} = product;
     return (
-        <div className='border-orange-200 border-2 bg-gray-100 rounded-md p-3 relative h-[470px]'>
+        <div className='border-orange-200 border-2 bg-gray-100 rounded-md p-3 relative h-[470px] md:h-[480px] lg:h-[470px]'>
                 <img src={img} alt="" />
                 <div className='pt-2'>
                     <h3 className='text-orange-500 font-semibold'>{name}</h3>
