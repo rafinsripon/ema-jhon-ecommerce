@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Cart = (props) => {
-    const {cart} = props;
+    const {cart, clearCart, children} = props;
     // console.log(cart);
     let total = 0;
     let shipping = 0;
@@ -23,6 +23,8 @@ const Cart = (props) => {
             <h4 className='text-lg font-semibold mt-5'>Total shipping: ${shipping}</h4>
             <h4 className='text-lg font-semibold mt-5'>Tax: ${tax}</h4>
             <h3 className='text-xl font-extrabold mt-5'>Grand Total: ${grandTotal.toFixed(2)}</h3>
+            <button onClick={clearCart} className='bg-red-500 text-white text-lg font-semibold w-full py-2 mt-8 rounded-md cursor-pointer'>Clear Cart</button>
+            {children}
         </div>
     );
 };
