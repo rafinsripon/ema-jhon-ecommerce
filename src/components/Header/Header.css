@@ -4,3 +4,8 @@
     padding-left: 110px;
     padding-right: 110px;
 }
+
+ul.menu.menu-horizontal.p-0 a {
+    background: none;
+    color: white;
+}

@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { addToDb, getStoreCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 
 const Shop = () => {
-    const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
-    useEffect(() => {
-        fetch('products.json')
-        .then(res => res.json())
-        .then(data => setProducts(data))
-    },[]);
+    const products = useLoaderData();
 
+    const [cart, setCart] = useState([]);
+    
     useEffect(() => {
         // console.log('local Storage First line', products)
         const storedCart = getStoreCart();
@@ -30,7 +27,7 @@ const Shop = () => {
     },[products]);
 
     const addToCart = (selectedProduct) => {
-        console.log(selectedProduct);
+        // console.log(selectedProduct);
         let newCart = [];
         const exists = cart.find(product => product.id === selectedProduct.id);
         if(!exists){
@@ -46,8 +43,8 @@ const Shop = () => {
         addToDb(selectedProduct.id)
     }
     return (
-        <div className='grid lg:grid-cols-4 gap-3 px-16 mt-10'>
-            <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 col-span-3 gap-4">
+        <div className='shopContainer grid lg:grid-cols-4 gap-3 px-16 mt-10'>
+            <div className="productsContainer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 col-span-3 gap-4">
                 {
                     products.map(product => <Product 
                         key={product.id}
@@ -56,7 +53,7 @@ const Shop = () => {
                         />)
                 }
             </div>
-            <div className="col-span-1 md:flex-col-reverse bg-orange-200 p-4">
+            <div className="cartContainer col-span-1 md:flex-col-reverse bg-orange-200 p-4">
                 <Cart cart={cart} />
             </div>
         </div>

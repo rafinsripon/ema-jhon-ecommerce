@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import logo from '../../images/Logo.svg';
 import './Header.css';
 
@@ -10,10 +11,10 @@ const Header = () => {
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal p-0">
-                    <li><a className='text-white hover:text-orange-500 bg-none' href='/shop'>Shop</a></li>
-                    <li><a className='text-white hover:text-orange-500' href='/order'>Order Review</a></li>
-                    <li><a className='text-white hover:text-orange-500' href='/invertory'>Inventory</a></li>
-                    <li><a className='text-white hover:text-orange-500' href='/login'>Login</a></li>
+                    <li><NavLink className='text-whit' to='/'>Shop</NavLink></li>
+                    <li><NavLink className='text-white' to='/orders'>Order Review</NavLink></li>
+                    <li><NavLink className='text-white' to='/inventory'>Inventory</NavLink></li>
+                    <li><NavLink className='text-whit' to='/about'>About</NavLink></li>
                 </ul>
             </div>
         </nav>
